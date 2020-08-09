@@ -4,9 +4,14 @@ import Styles from "./News.module.scss";
 import { Article } from "../Article/Article";
 
 export const News = () => {
-	let newsArray = [1, 2, 3];
-	let articles = newsArray.map((id) => {
-		return <Article key={id} />;
+	const acticles = [
+		{ id: 1, commentsCounter: 10, likesCounter: 315 },
+		{ id: 2, commentsCounter: 10, likesCounter: 315 },
+		{ id: 3, commentsCounter: 10, likesCounter: 315 },
+	];
+
+	const newsJSX = acticles.map((article) => {
+		return <Article key={article.id} article={article} />;
 	});
-	return <section className={Styles.news}>{articles}</section>;
+	return <section className={Styles.news}>{newsJSX}</section>;
 };
