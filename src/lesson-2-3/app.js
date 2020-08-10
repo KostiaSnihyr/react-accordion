@@ -3,10 +3,14 @@ import React, { useState } from "react";
 import Styles from "./app.module.scss";
 
 export const App = ({ source }) => {
-	// console.log(Styles);
-	// console.log(source);
-	const toggleHandler = () => {
-		source[0].isPressed = true;
+	const [objSource, setSource] = useState(source);
+	const toggleHandler = (index) => {
+		setSource(
+			source.map((el) => {
+				el.isPressed = false;
+			})
+		);
+		source[index].isPressed = !source[index].isPressed;
 	};
 
 	let divJSX = source.map((obj, index) => {
@@ -18,7 +22,7 @@ export const App = ({ source }) => {
 						? `${Styles["accordion-item"]} ${Styles["selected"]}`
 						: `${Styles["accordion-item"]}`
 				}
-				onClick={toggleHandler}
+				onClick={() => toggleHandler(index)}
 			>
 				<div className={Styles["accordion-question"]}>
 					<span>{obj.question}</span>
