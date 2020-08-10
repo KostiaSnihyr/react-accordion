@@ -8,8 +8,8 @@ export const News = (props) => {
 
 	const newsJSX = articles.map((article) => {
 		const indexOfArticle = articles.indexOf(article);
-		console.log(indexOfArticle);
-		console.log(props.source[indexOfArticle].title);
+		// console.log(indexOfArticle);
+		// console.log(props.source[indexOfArticle].title);
 		return (
 			<Article
 				key={article.id}
