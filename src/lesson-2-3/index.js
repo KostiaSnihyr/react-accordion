@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { App } from "./app";
+import { Accordion } from "./app";
 import * as serviceWorker from "../serviceWorker";
 ReactDOM.render(
-	<App
+	<Accordion
 		source={[
 			{
 				question: "What is your name?",

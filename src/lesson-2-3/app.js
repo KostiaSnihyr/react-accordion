@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { News } from "./components/News/News.js";
 import Styles from "./app.module.scss";
 
-export const App = ({ source }) => {
+export const Accordion = ({ source }) => {
 	const [objSource, setSource] = useState(source);
 	const toggleHandler = (index) => {
 		setSource(
