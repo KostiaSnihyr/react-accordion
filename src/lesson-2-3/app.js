@@ -1,41 +1,24 @@
-import React, { useState } from "react";
-// import { News } from "./components/News/News.js";
-import Styles from "./app.module.scss";
+import React from "react";
+import Accordion from "./components/Accordion/Accordion";
 
-export const Accordion = ({ source }) => {
-	const [objSource, setSource] = useState(source);
-	const toggleHandler = (index) => {
-		setSource(
-			source.map((el) => {
-				el.isPressed = false;
-			})
-		);
-		source[index].isPressed = !source[index].isPressed;
-	};
+const accordion = [
+	{
+		id: 1,
+		question: "What is your name1?",
+		answer: "My name is Andrii",
+	},
+	{
+		id: 2,
+		question: "What is your name2?",
+		answer: "My name is Mihai",
+	},
+	{
+		id: 3,
+		question: "What is your name3?",
+		answer: "My name is Kate",
+	},
+];
 
-	let divJSX = source.map((obj, index) => {
-		return (
-			<div
-				key={index}
-				className={
-					obj.isPressed
-						? `${Styles["accordion-item"]} ${Styles["selected"]}`
-						: `${Styles["accordion-item"]}`
-				}
-				onClick={() => toggleHandler(index)}
-			>
-				<div className={Styles["accordion-question"]}>
-					<span>{obj.question}</span>
-				</div>
-				<p className={Styles["accordion-answer"]}>{obj.answer}</p>
-			</div>
-		);
-	});
-
-	return (
-		<section className={Styles.accordion}>
-			<h1>Accordion</h1>
-			{divJSX}
-		</section>
-	);
+export const App = () => {
+	return <Accordion source={accordion} />;
 };
