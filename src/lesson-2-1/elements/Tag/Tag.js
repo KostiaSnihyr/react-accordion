@@ -1,9 +1,9 @@
 import React from "react";
 import Styles from "./Tag.module.scss";
 
-const tagsArray = ["Literature", "Books"];
+export const Tags = ({ source }) => {
+	const tagsArray = source;
 
-export const Tags = () => {
 	const tag = tagsArray.map((tag, index) => {
 		return (
 			<div key={index}>
