@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AccordionItem from "../../elements/AccordionItem/AccordionItem";
 import Styles from "./Accordion.module.scss";
 
-const Accordion = ({ source }) => {
+const Accordion = ({ source, title }) => {
 	const [data, setData] = useState(source);
 
 	const handleSelectById = (targetId) => {
@@ -35,10 +35,14 @@ const Accordion = ({ source }) => {
 
 	return (
 		<section className={Styles.accordion}>
-			<h1>Accordion</h1>
+			<h1>{title}</h1>
 			{accordionItems}
 		</section>
 	);
+};
+
+Accordion.defaultProps = {
+	title: "Accordion",
 };
 
 export default Accordion;
